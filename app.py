@@ -17,27 +17,33 @@ import pickle
 import networkx as nx
 import plotly.graph_objects as go
 from urllib.robotparser import RobotFileParser
+from bs4 import BeautifulSoup  # Added for better HTML parsing
+
 
 # Function to install dependencies
 def install_dependencies():
     try:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "pycurl", "matplotlib", "networkx", "plotly"])
+        # It's recommended to handle dependencies outside runtime
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "pycurl", "matplotlib", "networkx", "plotly", "beautifulsoup4", "lxml"])
     except Exception as e:
         print(f"Failed to install dependencies: {e}")
         sys.exit(1)
 
-# Search for associated links on the page
+
+# Search for associated links on the page using BeautifulSoup
 def search_links(content, base_url):
     links = []
-    for line in content.splitlines():
-        if "href=" in line:
-            start = line.find("href=") + len("href=") + 1
-            end = line.find('"', start)
-            url = line[start:end]
+    try:
+        soup = BeautifulSoup(content, 'lxml')
+        for link in soup.find_all('a', href=True):
+            url = link['href']
             if not url.startswith("http"):
                 url = urljoin(base_url, url)
             links.append(url)
+    except Exception as e:
+        logging.error(f"Error parsing HTML: {e}")
     return links
+
 
 # Setup logging to file and console
 def setup_logging(output_dir):
@@ -46,26 +52,35 @@ def setup_logging(output_dir):
                         handlers=[logging.FileHandler(log_file), logging.StreamHandler()])
     logging.info("Logging initialized.")
 
+
 # Create interactive heatmap using Plotly
 def create_heatmap(link_data, output_dir):
     domain_counter = collections.Counter(link_data)
-    domains, counts = zip(*domain_counter.items())
+    domains, counts = zip(*domain_counter.items()) if domain_counter else ([], [])
+
+    if domains and counts:
+        fig = go.Figure(data=[go.Bar(x=counts, y=domains, orientation='h')])
+        fig.update_layout(title="Interactive Heatmap of Link Frequencies",
+                          xaxis_title="Number of Links",
+                          yaxis_title="Domain")
     
-    fig = go.Figure(data=[go.Bar(x=counts, y=domains, orientation='h')])
-    fig.update_layout(title="Interactive Heatmap of Link Frequencies",
-                      xaxis_title="Number of Links",
-                      yaxis_title="Domain")
-    
-    heatmap_path = os.path.join(output_dir, "interactive_heatmap.html")
-    fig.write_html(heatmap_path)
-    logging.info(f"Interactive heatmap saved at {heatmap_path}")
+        heatmap_path = os.path.join(output_dir, "interactive_heatmap.html")
+        fig.write_html(heatmap_path)
+        logging.info(f"Interactive heatmap saved at {heatmap_path}")
+    else:
+        logging.info("No data available to generate heatmap.")
+
 
 # Create network graph
 def create_network_graph(links, output_dir):
+    if not links:
+        logging.info("No links to generate network graph.")
+        return
+
     G = nx.Graph()
     for source, target in links:
         G.add_edge(source, target)
-    
+
     pos = nx.spring_layout(G)
     edge_x, edge_y = [], []
     for edge in G.edges():
@@ -86,31 +101,38 @@ def create_network_graph(links, output_dir):
 
     fig = go.Figure(data=[edge_trace, node_trace],
                     layout=go.Layout(showlegend=False, hovermode='closest',
-                                     margin=dict(b=0,l=0,r=0,t=0)))
-    
+                                     margin=dict(b=0, l=0, r=0, t=0)))
+
     network_path = os.path.join(output_dir, "network_graph.html")
     fig.write_html(network_path)
     logging.info(f"Network graph saved at {network_path}")
 
+
 # Function to check robots.txt and implement rate limiting
 def respect_robots_txt(url, user_agent):
     rp = RobotFileParser()
-    rp.set_url(urljoin(url, "/robots.txt"))
-    rp.read()
-    
-    if not rp.can_fetch(user_agent, url):
-        logging.warning(f"Robots.txt disallows fetching {url}")
-        return False
-    
-    crawl_delay = rp.crawl_delay(user_agent)
-    if crawl_delay:
-        time.sleep(crawl_delay)
-    else:
-        time.sleep(1)  # Default delay
-    
+    robots_url = urljoin(url, "/robots.txt")
+
+    try:
+        rp.set_url(robots_url)
+        rp.read()
+
+        if not rp.can_fetch(user_agent, url):
+            logging.warning(f"Robots.txt disallows fetching {url}")
+            return False
+
+        crawl_delay = rp.crawl_delay(user_agent)
+        if crawl_delay:
+            time.sleep(crawl_delay)
+        else:
+            time.sleep(1)  # Default delay
+    except Exception as e:
+        logging.error(f"Error reading robots.txt at {robots_url}: {e}")
+        time.sleep(1)  # Default to 1-second delay if error
     return True
 
-# Function for the menu system
+
+# Function for the menu system with input validation
 def display_menu():
     settings = {
         "url_file": "",
@@ -141,33 +163,37 @@ def display_menu():
 
         choice = input("Enter your choice (1-11): ")
 
-        if choice == '1':
-            settings['url_file'] = input("Enter the URL file path: ")
-        elif choice == '2':
-            settings['connections'] = int(input("Enter the number of connections: "))
-        elif choice == '3':
-            settings['timeout'] = int(input("Enter the timeout in seconds: "))
-        elif choice == '4':
-            settings['search_links'] = not settings['search_links']
-        elif choice == '5':
-            settings['output_dir'] = input("Enter the output directory: ")
-        elif choice == '6':
-            settings['depth'] = int(input("Enter the crawl depth: "))
-        elif choice == '7':
-            header_input = input("Enter custom headers as a JSON string (e.g., {\"User-Agent\": \"MyBot\"}): ")
-            settings['headers'] = json.loads(header_input)
-        elif choice == '8':
-            agents = input("Enter user agents separated by commas: ")
-            settings['user_agents'] = [agent.strip() for agent in agents.split(',')]
-        elif choice == '9':
-            settings['resume'] = not settings['resume']
-        elif choice == '10':
-            return settings
-        elif choice == '11':
-            print("Exiting...")
-            sys.exit(0)
-        else:
-            input("Invalid choice. Press Enter to continue...")
+        try:
+            if choice == '1':
+                settings['url_file'] = input("Enter the URL file path: ").strip()
+            elif choice == '2':
+                settings['connections'] = max(1, int(input("Enter the number of connections (>=1): ").strip()))
+            elif choice == '3':
+                settings['timeout'] = max(1, int(input("Enter the timeout in seconds (>=1): ").strip()))
+            elif choice == '4':
+                settings['search_links'] = not settings['search_links']
+            elif choice == '5':
+                settings['output_dir'] = input("Enter the output directory: ").strip()
+            elif choice == '6':
+                settings['depth'] = max(1, int(input("Enter the crawl depth (>=1): ").strip()))
+            elif choice == '7':
+                header_input = input("Enter custom headers as a JSON string (e.g., {\"User-Agent\": \"MyBot\"}): ").strip()
+                settings['headers'] = json.loads(header_input)
+            elif choice == '8':
+                agents = input("Enter user agents separated by commas: ").strip()
+                settings['user_agents'] = [agent.strip() for agent in agents.split(',')]
+            elif choice == '9':
+                settings['resume'] = not settings['resume']
+            elif choice == '10':
+                return settings
+            elif choice == '11':
+                print("Exiting...")
+                sys.exit(0)
+            else:
+                input("Invalid choice. Press Enter to continue...")
+        except ValueError:
+            input("Invalid input. Press Enter to continue...")
+
 
 # Main function
 def main():
@@ -210,42 +236,39 @@ def main():
 
     m = pycurl.CurlMulti()
     m.handles = []
-    for _ in range(num_conn):
+    for i in range(num_conn):
         c = pycurl.Curl()
-        c.fp = None
-        c.setopt(pycurl.FOLLOWLOCATION, 1)
-        c.setopt(pycurl.MAXREDIRS, 5)
-        c.setopt(pycurl.CONNECTTIMEOUT, 30)
-        c.setopt(pycurl.TIMEOUT, settings['timeout'])
-        c.setopt(pycurl.NOSIGNAL, 1)
         m.handles.append(c)
 
-    freelist = m.handles[:]
-    num_processed = 0
-    all_links = []
-    
+    # Crawl logic with better error handling and state saving
+    active_handles = 0
     while crawl_state["queue"]:
-        while crawl_state["queue"] and freelist:
+        while active_handles < num_conn and crawl_state["queue"]:
             url, depth = crawl_state["queue"].pop(0)
             if url in crawl_state["processed_urls"]:
                 continue
-            
-            c = freelist.pop()
-            user_agent = random.choice(settings['user_agents'])
-            
-            if not respect_robots_txt(url, user_agent):
-                freelist.append(c)
+
+            if not respect_robots_txt(url, settings['user_agents'][0]):
                 continue
-            
-            c.fp = open(os.path.join(settings['output_dir'], f"doc_{num_processed:03d}.dat"), "wb")
+
+            c = m.handles[active_handles]
             c.setopt(pycurl.URL, url)
-            c.setopt(pycurl.WRITEDATA, c.fp)
-            c.setopt(pycurl.USERAGENT, user_agent)
-            for key, value in settings['headers'].items():
-                c.setopt(pycurl.HTTPHEADER, [f"{key}: {value}"])
-            m.add_handle(c)
+            c.setopt(pycurl.TIMEOUT, settings['timeout'])
+
+            # Assign file to save the output
+            output_file = os.path.join(settings['output_dir'], f"doc_{random.randint(1000, 9999)}.dat")
+            try:
+                c.fp = open(output_file, "wb")
+                c.setopt(c.WRITEDATA, c.fp)
+            except Exception as e:
+                logging.error(f"Error opening file {output_file} for writing: {e}")
+                continue
+
             c.url = url
             c.depth = depth
+            c.output_file = output_file
+            m.add_handle(c)
+            active_handles += 1
 
         while True:
             ret, num_handles = m.perform()
@@ -255,58 +278,36 @@ def main():
         while True:
             num_q, ok_list, err_list = m.info_read()
             for c in ok_list:
-                c.fp.close()
-                c.fp = None
-                m.remove_handle(c)
-                crawl_state["processed_urls"].add(c.url)
-                logging.info(f"Success: {c.url}")
-                
+                # Fetch links if required and add them to the queue
                 if settings['search_links'] and c.depth < settings['depth']:
-                    with open(c.fp.name, 'r') as f:
+                    with open(c.output_file, "rb") as f:
                         content = f.read()
                     links = search_links(content, c.url)
                     for link in links:
-                        if link not in crawl_state["processed_urls"]:
-                            crawl_state["queue"].append((link, c.depth + 1))
-                            all_links.append((c.url, link))
-                
-                freelist.append(c)
-            
-            for c, errno, errmsg in err_list:
-                c.fp.close()
-                c.fp = None
-                m.remove_handle(c)
+                        crawl_state["queue"].append((link, c.depth + 1))
+
                 crawl_state["processed_urls"].add(c.url)
-                logging.error(f"Failed: {c.url}, {errno}, {errmsg}")
-                freelist.append(c)
-            
-            num_processed += len(ok_list) + len(err_list)
+                m.remove_handle(c)
+                active_handles -= 1
+                c.fp.close()
+
+            for c, errno, errmsg in err_list:
+                logging.error(f"Failed fetching {c.url}: {errmsg}")
+                m.remove_handle(c)
+                active_handles -= 1
+                c.fp.close()
+
             if num_q == 0:
                 break
-        
-        m.select(1.0)
-        
-        # Save state periodically
-        if num_processed % 10 == 0:
-            with open(state_file, "wb") as f:
-                pickle.dump(crawl_state, f)
 
-    # Generate visualizations
-    if all_links:
-        domains = [urlparse(link[1]).netloc for link in all_links]
-        create_heatmap(domains, settings['output_dir'])
-        create_network_graph(all_links, settings['output_dir'])
-
-    # Cleanup
-    for c in m.handles:
-        if c.fp is not None:
-            c.fp.close()
-        c.close()
-    m.close()
-
-    # Final state save
+    # Save the crawl state
     with open(state_file, "wb") as f:
         pickle.dump(crawl_state, f)
 
-if __name__ == "__main__":
+    # Generate visualizations if there are results
+    create_heatmap([urlparse(url).netloc for url in crawl_state['processed_urls']], settings['output_dir'])
+    create_network_graph([(urlparse(src).netloc, urlparse(tgt).netloc) for src, tgt in crawl_state['queue']], settings['output_dir'])
+
+
+if __name__ == '__main__':
     main()
