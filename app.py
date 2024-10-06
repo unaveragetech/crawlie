@@ -20,14 +20,31 @@ from urllib.robotparser import RobotFileParser
 from bs4 import BeautifulSoup  # Added for better HTML parsing
 
 
-# Function to install dependencies
+# Function to create requirements.txt and install dependencies
 def install_dependencies():
+    requirements = [
+        "pycurl",
+        "matplotlib",
+        "networkx",
+        "plotly",
+        "beautifulsoup4",
+        "lxml"
+    ]
+    
     try:
-        # It's recommended to handle dependencies outside runtime
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "pycurl", "matplotlib", "networkx", "plotly", "beautifulsoup4", "lxml"])
+        # Write requirements to requirements.txt
+        with open("requirements.txt", "w") as f:
+            f.write("\n".join(requirements))
+        print("requirements.txt created successfully.")
+
+        # Install the dependencies from the requirements.txt
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
+        print("Dependencies installed successfully.")
+    
     except Exception as e:
         print(f"Failed to install dependencies: {e}")
         sys.exit(1)
+
 
 
 # Search for associated links on the page using BeautifulSoup
