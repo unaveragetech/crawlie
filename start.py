@@ -1,61 +1,66 @@
 import os
-import subprocess
+import logging
 import requests
+import argparse
 from bs4 import BeautifulSoup
-from urllib.parse import urlparse
+from urllib.parse import urljoin, urlparse
+
+def setup_logging(output_dir):
+    os.makedirs(output_dir, exist_ok=True)
+    logging.basicConfig(
+        filename=os.path.join(output_dir, 'crawler.log'),
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s'
+    )
 
 def ensure_https(url):
-    """Ensure the URL has a scheme; if not, prepend 'https://'."""
     parsed_url = urlparse(url)
     if not parsed_url.scheme:
         return f"https://{url}"
     return url
 
-def fetch_links(url, limit=5):
-    """Fetch a small number of links from the main page."""
+def fetch_links(url, percentage):
     try:
-        response = requests.get(url)
-        response.raise_for_status()  # Check if the request was successful
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        }
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()
         soup = BeautifulSoup(response.text, 'html.parser')
-        links = []
+        all_links = []
 
         for link in soup.find_all('a', href=True):
-            full_link = link['href']
-            # If it's a relative URL, make it absolute
-            if not urlparse(full_link).netloc:
-                full_link = urlparse(url)._replace(path=full_link).geturl()
-            links.append(full_link)
-            if len(links) >= limit:
-                break
+            full_link = urljoin(url, link['href'])
+            if urlparse(full_link).netloc == urlparse(url).netloc:
+                all_links.append(full_link)
 
-        return links
+        num_links_to_fetch = int(len(all_links) * (percentage / 100))
+        return all_links[:num_links_to_fetch]
     except Exception as e:
-        print(f"Error fetching links: {e}")
+        logging.error(f"Error fetching links: {e}")
         return []
 
 def main():
-    # Define the filename
+    parser = argparse.ArgumentParser(description="Web crawler script")
+    parser.add_argument("--url", required=True, help="URL to crawl")
+    parser.add_argument("--percentage", type=float, required=True, help="Percentage of links to return (0-100)")
+    args = parser.parse_args()
+
+    output_dir = os.path.join(os.getcwd(), 'output')
+    setup_logging(output_dir)
     url_file = "urls.txt"
 
-    # Check if the file exists
-    if not os.path.exists(url_file):
-        # Prompt user for a URL
-        url = input("Enter a URL to crawl: ").strip()
-        url = ensure_https(url)  # Ensure the URL has a valid scheme
+    url = ensure_https(args.url)
+    percentage = max(0, min(100, args.percentage))
 
-        # Fetch a small number of links from the provided URL
-        links = fetch_links(url)
+    links = fetch_links(url, percentage)
 
-        # Write the links to the file
-        with open(url_file, 'w') as f:
-            for link in links:
-                f.write(link + '\n')
-        print(f"Fetched {len(links)} links and added them to {url_file}.")
-    else:
-        print(f"{url_file} already exists. Appending new URL is not implemented.")
-
-    # Run the main file app,text,ect
-    subprocess.run(["python", "test.py"])
+    with open(url_file, 'w') as f:
+        for link in links:
+            f.write(link + '\n')
+    
+    logging.info(f"Fetched {len(links)} links ({percentage}% of total) and added them to {url_file}.")
+    print(f"Fetched {len(links)} links and added them to {url_file}.")
 
 if __name__ == "__main__":
     main()

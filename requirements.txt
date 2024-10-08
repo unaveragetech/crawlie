@@ -4,3 +4,4 @@ networkx
 plotly
 beautifulsoup4
 lxml
+tqdm
