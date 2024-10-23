@@ -1,0 +1,139 @@
+2024-10-23 02:46:12,090 - INFO - Logging initialized.
+2024-10-23 02:46:12,117 - INFO - Fetching: https://finviz.com/
+2024-10-23 02:46:12,123 - INFO - Fetching: https://finviz.com/screener.ashx
+2024-10-23 02:46:12,127 - INFO - Fetching: https://finviz.com/news.ashx
+2024-10-23 02:46:12,132 - INFO - Fetching: https://finviz.com/portfolio.ashx
+2024-10-23 02:46:12,134 - INFO - Fetching: https://finviz.com/groups.ashx
+2024-10-23 02:46:12,139 - INFO - Fetching: https://finviz.com/futures.ashx
+2024-10-23 02:46:12,142 - INFO - Fetching: https://finviz.com/map.ashx
+2024-10-23 02:46:12,145 - INFO - Fetching: https://finviz.com/forex.ashx
+2024-10-23 02:46:12,147 - INFO - Fetching: https://finviz.com/insidertrading.ashx
+2024-10-23 02:46:12,150 - INFO - Fetching: https://finviz.com/elite.ashx
+2024-10-23 02:46:12,158 - INFO - Fetching: https://finviz.com/
+2024-10-23 02:46:12,160 - INFO - Fetching: https://finviz.com/help/screener.ashx
+2024-10-23 02:46:12,161 - INFO - Fetching: https://finviz.com/elite.ashx?utm_source=finviz&utm_medium=banner&utm_campaign=main-navbar-backtests
+2024-10-23 02:46:12,161 - INFO - Fetching: https://finviz.com/
+2024-10-23 02:46:12,162 - INFO - Fetching: https://finviz.com/crypto.ashx
+2024-10-23 02:46:12,180 - INFO - Fetching: https://finviz.com/register.ashx
+2024-10-23 02:46:12,181 - INFO - Fetching: https://finviz.com/login.ashx
+2024-10-23 02:46:12,182 - INFO - Fetching: https://finviz.com/quote.ashx?t=SRRK
+2024-10-23 02:46:12,225 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_topgainers
+2024-10-23 02:46:12,263 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_topgainers
+2024-10-23 02:46:12,271 - INFO - Fetching: https://finviz.com/quote.ashx?t=AMBO
+2024-10-23 02:46:12,298 - INFO - Fetching: https://finviz.com/quote.ashx?t=SOBR
+2024-10-23 02:46:12,345 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_topgainers
+2024-10-23 02:46:12,369 - INFO - Fetching: https://finviz.com/quote.ashx?t=LOBO
+2024-10-23 02:46:12,377 - INFO - Fetching: https://finviz.com/quote.ashx?t=SNAL
+2024-10-23 02:46:12,377 - INFO - Fetching: https://finviz.com/quote.ashx?t=NAPA
+2024-10-23 02:46:12,405 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_topgainers
+2024-10-23 02:46:12,429 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_topgainers
+2024-10-23 02:46:12,445 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_topgainers
+2024-10-23 02:46:12,513 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_newhigh
+2024-10-23 02:46:12,520 - INFO - Fetching: https://finviz.com/quote.ashx?t=CIA
+2024-10-23 02:46:12,560 - INFO - Fetching: https://finviz.com/quote.ashx?t=SRRK
+2024-10-23 02:46:12,571 - INFO - Fetching: https://finviz.com/screener.ashx?v=210&s=ta_overbought
+2024-10-23 02:46:12,571 - INFO - Fetching: https://finviz.com/quote.ashx?t=USGO
+2024-10-23 02:46:12,571 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_newhigh
+2024-10-23 02:46:12,605 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_newhigh
+2024-10-23 02:46:12,633 - INFO - Fetching: https://finviz.com/screener.ashx?v=210&s=ta_overbought
+2024-10-23 02:46:12,633 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_newhigh
+2024-10-23 02:46:12,633 - INFO - Fetching: https://finviz.com/quote.ashx?t=USGO
+2024-10-23 02:46:12,748 - INFO - Fetching: https://finviz.com/quote.ashx?t=MYTE
+2024-10-23 02:46:12,762 - INFO - Fetching: https://finviz.com/quote.ashx?t=OCFT
+2024-10-23 02:46:12,763 - INFO - Fetching: https://finviz.com/quote.ashx?t=AMBO
+2024-10-23 02:46:12,791 - INFO - Fetching: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:12,816 - INFO - Fetching: https://finviz.com/quote.ashx?t=RIME
+2024-10-23 02:46:12,830 - INFO - Fetching: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:12,856 - INFO - Fetching: https://finviz.com/quote.ashx?t=SRRK
+2024-10-23 02:46:12,931 - INFO - Fetching: https://finviz.com/quote.ashx?t=SOBR
+2024-10-23 02:46:12,962 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=ta_topgainers: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=ta_topgainers
+2024-10-23 02:46:12,993 - INFO - Fetching: https://finviz.com/quote.ashx?t=APD
+2024-10-23 02:46:13,134 - INFO - Fetching: https://finviz.com/quote.ashx?t=LGCY
+2024-10-23 02:46:13,169 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=n_upgrades
+2024-10-23 02:46:13,169 - INFO - Fetching: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:13,175 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=ta_topgainers: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=ta_topgainers
+2024-10-23 02:46:13,227 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_toplosers
+2024-10-23 02:46:13,241 - INFO - Fetching: https://finviz.com/quote.ashx?t=LFCR
+2024-10-23 02:46:13,246 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=n_earningsbefore
+2024-10-23 02:46:13,283 - INFO - Fetching: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:13,300 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=ta_newhigh: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=ta_newhigh
+2024-10-23 02:46:13,327 - INFO - Fetching: https://finviz.com/quote.ashx?t=TRVN
+2024-10-23 02:46:13,452 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=it_latestbuys
+2024-10-23 02:46:13,477 - INFO - Fetching: https://finviz.com/quote.ashx?t=LSB
+2024-10-23 02:46:13,483 - ERROR - Error fetching https://finviz.com/screener.ashx?v=210&s=ta_overbought: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=210&s=ta_overbought
+2024-10-23 02:46:13,535 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_toplosers
+2024-10-23 02:46:13,584 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=ta_newhigh: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=ta_newhigh
+2024-10-23 02:46:13,585 - ERROR - Error fetching https://finviz.com/screener.ashx?v=210&s=ta_overbought: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=210&s=ta_overbought
+2024-10-23 02:46:13,592 - INFO - Fetching: https://finviz.com/quote.ashx?t=LASE
+2024-10-23 02:46:13,630 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=ta_newhigh: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=ta_newhigh
+2024-10-23 02:46:13,790 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=ta_newhigh: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=ta_newhigh
+2024-10-23 02:46:13,969 - ERROR - Error fetching https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:14,022 - ERROR - Error fetching https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:14,079 - ERROR - Error fetching https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:14,192 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=n_upgrades: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=n_upgrades
+2024-10-23 02:46:14,201 - ERROR - Error fetching https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:14,202 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=n_earningsbefore: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=n_earningsbefore
+2024-10-23 02:46:14,294 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=ta_toplosers: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=ta_toplosers
+2024-10-23 02:46:14,430 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=it_latestbuys: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=it_latestbuys
+2024-10-23 02:46:14,544 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=ta_toplosers: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=ta_toplosers
+2024-10-23 02:46:14,550 - ERROR - Error fetching https://finviz.com/quote.ashx?t=TRVN: 404 Client Error: Not Found for url: https://finviz.com/quote.ashx?t=TRVN
+2024-10-23 02:46:14,596 - ERROR - Error fetching https://finviz.com/quote.ashx?t=LSB: 429 Client Error: Too Many Requests for url: https://finviz.com/quote.ashx?t=LSB
+2024-10-23 02:46:14,695 - ERROR - Error fetching https://finviz.com/quote.ashx?t=LASE: 429 Client Error: Too Many Requests for url: https://finviz.com/quote.ashx?t=LASE
+2024-10-23 02:46:15,886 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_topgainers
+2024-10-23 02:46:15,890 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_topgainers
+2024-10-23 02:46:15,927 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_newhigh
+2024-10-23 02:46:16,245 - INFO - Fetching: https://finviz.com/screener.ashx?v=210&s=ta_overbought
+2024-10-23 02:46:16,277 - INFO - Fetching: https://finviz.com/screener.ashx?v=210&s=ta_overbought
+2024-10-23 02:46:16,283 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_newhigh
+2024-10-23 02:46:16,296 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_newhigh
+2024-10-23 02:46:16,297 - INFO - Fetching: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:16,297 - INFO - Fetching: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:16,302 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_newhigh
+2024-10-23 02:46:16,364 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=ta_newhigh: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=ta_newhigh
+2024-10-23 02:46:16,364 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=ta_newhigh: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=ta_newhigh
+2024-10-23 02:46:16,366 - ERROR - Error fetching https://finviz.com/screener.ashx?v=210&s=ta_overbought: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=210&s=ta_overbought
+2024-10-23 02:46:16,374 - ERROR - Error fetching https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:16,374 - ERROR - Error fetching https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:16,411 - INFO - Fetching: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:16,411 - INFO - Fetching: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:16,411 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=n_upgrades
+2024-10-23 02:46:16,411 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=n_earningsbefore
+2024-10-23 02:46:16,422 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_toplosers
+2024-10-23 02:46:16,481 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=it_latestbuys
+2024-10-23 02:46:16,492 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=n_upgrades: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=n_upgrades
+2024-10-23 02:46:16,493 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=n_earningsbefore: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=n_earningsbefore
+2024-10-23 02:46:16,511 - ERROR - Error fetching https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:16,511 - ERROR - Error fetching https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:16,534 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=it_latestbuys: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=it_latestbuys
+2024-10-23 02:46:16,536 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=ta_toplosers: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=ta_toplosers
+2024-10-23 02:46:16,545 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_toplosers
+2024-10-23 02:46:16,550 - INFO - Fetching: https://finviz.com/quote.ashx?t=TRVN
+2024-10-23 02:46:16,583 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=ta_toplosers: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=ta_toplosers
+2024-10-23 02:46:16,613 - ERROR - Error fetching https://finviz.com/quote.ashx?t=TRVN: 429 Client Error: Too Many Requests for url: https://finviz.com/quote.ashx?t=TRVN
+2024-10-23 02:46:16,613 - INFO - Fetching: https://finviz.com/quote.ashx?t=LSB
+2024-10-23 02:46:16,689 - ERROR - Error fetching https://finviz.com/quote.ashx?t=LSB: 429 Client Error: Too Many Requests for url: https://finviz.com/quote.ashx?t=LSB
+2024-10-23 02:46:16,696 - INFO - Fetching: https://finviz.com/quote.ashx?t=LASE
+2024-10-23 02:46:16,771 - ERROR - Error fetching https://finviz.com/quote.ashx?t=LASE: 429 Client Error: Too Many Requests for url: https://finviz.com/quote.ashx?t=LASE
+2024-10-23 02:46:18,365 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_newhigh
+2024-10-23 02:46:18,374 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_newhigh
+2024-10-23 02:46:18,375 - INFO - Fetching: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:18,375 - INFO - Fetching: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:18,376 - INFO - Fetching: https://finviz.com/screener.ashx?v=210&s=ta_overbought
+2024-10-23 02:46:18,601 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=n_upgrades
+2024-10-23 02:46:18,602 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_toplosers
+2024-10-23 02:46:18,602 - INFO - Fetching: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:18,602 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=ta_toplosers
+2024-10-23 02:46:18,602 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=it_latestbuys
+2024-10-23 02:46:18,612 - INFO - Fetching: https://finviz.com/screener.ashx?v=340&s=n_earningsbefore
+2024-10-23 02:46:18,618 - INFO - Fetching: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:18,659 - INFO - Fetching: https://finviz.com/quote.ashx?t=TRVN
+2024-10-23 02:46:18,755 - INFO - Fetching: https://finviz.com/quote.ashx?t=LSB
+2024-10-23 02:46:18,772 - INFO - Fetching: https://finviz.com/quote.ashx?t=LASE
+2024-10-23 02:46:18,857 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=ta_toplosers: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=ta_toplosers
+2024-10-23 02:46:18,857 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=ta_toplosers: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=ta_toplosers
+2024-10-23 02:46:18,858 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=n_upgrades: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=n_upgrades
+2024-10-23 02:46:18,859 - ERROR - Error fetching https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:18,877 - ERROR - Error fetching https://finviz.com/quote.ashx?t=TRVN: 404 Client Error: Not Found for url: https://finviz.com/quote.ashx?t=TRVN
+2024-10-23 02:46:18,884 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=it_latestbuys: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=it_latestbuys
+2024-10-23 02:46:18,885 - ERROR - Error fetching https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=320&s=ta_unusualvolume
+2024-10-23 02:46:18,896 - ERROR - Error fetching https://finviz.com/screener.ashx?v=340&s=n_earningsbefore: 429 Client Error: Too Many Requests for url: https://finviz.com/screener.ashx?v=340&s=n_earningsbefore
